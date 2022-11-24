@@ -1,0 +1,8 @@
+pin=1234
+bal=20000
+atm=int(input("Enter the ATM Pin"))
+if pin==atm:
+    print("You Can access Amount")
+    print("Your Balance:",bal)
+else:
+    print("Sorry Plz. Enter Correct Pin")
