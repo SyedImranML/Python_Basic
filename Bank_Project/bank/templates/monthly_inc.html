@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Banking System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+  {% load static %}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #333;
+      padding: 7px;
+      color: white;
+    }
+    logo{
+      font-family: 'Calibri';
+      font-size: 25px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-right: 15px;  /* gap b/w text */
+      display: inline-block;
+      font-family: 'Calibri';
+      font-size: 18px;
+    }
+
+    .navbar .navbar-brand {
+      margin-right: auto; /* Push brand/logo to the left */
+      font-family: 'Calibri';
+      font-size: 25px;
+    }
+
+    .background-container {
+      background-image: url("{% static 'bank.jpeg' %}");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.5); /* Adjust the alpha value for transparency */
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      margin: 150px auto;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .login-container h1 {
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      width: 90%;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-container button {
+      width: 50%;
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-container button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="navbar-brand">
+    <a style="font-size:22px;" href="/">Banking System</a>
+    <a class="nav-link active" aria-current="page" href="/monthly_inc">Deposit</a>
+    <a class="nav-link" href="withdraw">Withdrawal</a>
+    <a class="nav-link" href="report">Transactions</a>
+    <a class="nav-link" href="request">Withdrawal Request</a>
+    <a class="nav-link" href="monthly_inc">Set Limit</a>
+    <a class="nav-link" href="/">Logout</a>
+  </div>
+</div>
+    
+<div class="background-container">
+  <div class="login-container">
+    <h3>Monthly Usage Limit</h3><br>
+    <form id="contact" action="/monthly_inc" method="post">
+      {% csrf_token %}
+      <input name="amt" type="int" class="form-control" id="int" placeholder="Your Amount.." required="">
+      <br>
+      <button type="submit" id="form-submit" class="button">Set Limit</button>
+
+    </form>
+    <p>{{ message }}</p>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+

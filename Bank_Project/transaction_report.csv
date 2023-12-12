@@ -1,0 +1,6 @@
+Transaction Type,Date,Amount,Balance After Transaction
+Deposit,2023-12-11,50000.0,50000.0
+Withdrawal,2023-12-11,10000.0,40000.0
+Withdrawal,2023-12-11,20000.0,20000.0
+Withdrawal,2023-12-11,10000.0,10000.0
+,,Final Balance,10000.0
